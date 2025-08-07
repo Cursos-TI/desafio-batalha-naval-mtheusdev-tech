@@ -1,8 +1,18 @@
 #include <stdio.h>
 
-void imprimirTabuleiro(int linhas, int colunas, int tabuleiro[linhas][colunas]) {
-    printf("\nTabuleiro:\n");
+#define linhas 10
+#define colunas 10
+
+void imprimirTabuleiro( int tabuleiro[linhas][colunas]) {
+    printf("\n¨¨¨¨¨¨Tabuleiro de BATALHA NAVAL¨¨¨¨¨¨\n");
+       printf("\n   ");
+     for (int j = 0; j < colunas; j++){
+                printf("%c ", 'A' + j);
+            }
+             printf("\n");
+
     for (int i = 0; i < linhas; i++) {
+        printf("%2d ", i);
         for (int j = 0; j < colunas; j++) {
             printf("%d ", tabuleiro[i][j]);
         }
@@ -13,29 +23,25 @@ void imprimirTabuleiro(int linhas, int colunas, int tabuleiro[linhas][colunas]) 
 int main() {
 
     // Nível Aventureiro - Tabuleiro 10x10 com 4 navios
-    int tabuleiro10[10][10] = {0};
+    int tabuleiro[linhas][colunas] = {0};
 
     // Navio horizontal (linha 1, colunas 2 a 5)
     for (int j = 2; j <= 5; j++) {
-        tabuleiro10[1][j] = 3;
+     for (int i = 3; i <= 6; i++) {
+        tabuleiro[i][8] = 3;
+    }
+        tabuleiro[1][j] = 3;
     }
 
-    // Navio vertical (coluna 8, linhas 3 a 6)
-    for (int i = 3; i <= 6; i++) {
-        tabuleiro10[i][8] = 3;
+    for (int i = 0; i < 4; i++) {    // Navio diagonal principal (0,0) até (3,3)
+     for (int i = 0; i < 4; i++) {  // Navio diagonal secundária (0,9) até (3,6)
+        tabuleiro[i][9 - i] = 3;
     }
-
-    // Navio diagonal principal (0,0) até (3,3)
-    for (int i = 0; i < 4; i++) {
-        tabuleiro10[i][i] = 3;
+        tabuleiro[i][i] = 3;
     }
+    
 
-    // Navio diagonal secundária (0,9) até (3,6)
-    for (int i = 0; i < 4; i++) {
-        tabuleiro10[i][9 - i] = 3;
-    }
-
-    imprimirTabuleiro(10, 10, tabuleiro10);
+    imprimirTabuleiro(tabuleiro);
 
     return 0;
 }
