@@ -79,12 +79,12 @@ int main() {
     int tabuleiro[linhas][colunas] = {0};
 
     // Navio horizontal (linha 1, colunas 2 a 5)
-    for (int j = 2; j <= 3; j++) {
+    for (int j = 2; j <= 4; j++) {
         tabuleiro[1][j] = 3;
     }
 
     // Navio vertical (coluna 8, linhas 3 a 6)
-    for (int i = 3; i <= 6; i++) {
+    for (int i = 3; i <= 5; i++) {
         tabuleiro[i][8] = 3;
     }
 
@@ -116,12 +116,14 @@ int main() {
 
         imprimirTabuleiro(tabuleiro);
 
-           int i = 1;   int j = 2; 
+
+          int i = 1;   int j = 2; 
     if (i >= 0 && i < linhas && j >= 0 && j < colunas) { 
          if (tabuleiro[i][j] == 0) {     
-             tabuleiro[i][j] = 5;       
+             tabuleiro[i][j] == 5;       
          } else {  printf("Aviso: Tentativa de sobrepor um navio em (%d, %d)\n", i, j);  }    
          } else {  printf("Aviso: Coordenada (%d, %d) fora dos limites do tabuleiro.\n", i, j);}
+          
         
 
 
